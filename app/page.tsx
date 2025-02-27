@@ -3,28 +3,49 @@
 import React, { useState } from "react";
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import Accordion from 'react-bootstrap/Accordion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const People = [
-    { name: "Sue", favoriteFood: "Pizza", favoriteColor: "Blue" },
-    { name: "Bob", favoriteFood: "Sushi", favoriteColor: "Green" },
-    { name: "Charlie", favoriteFood: "Burgers", favoriteColor: "Red" }
+    // Test data to check functionality of the components
+    { name: "Sue", favoriteFood: "Pizza", favoriteColor: "Red" },
+    { name: "Bob", favoriteFood: "Sushi", favoriteColor: "Pink" },
+    { name: "Steve", favoriteFood: "Green Beans", favoriteColor: "Chartreuse" }
 ];
 
+
+/* 
+    Creates the card components. Each component has the student name, favorite food, and favorite color, listed vertically.
+    Underneath the mapped information are two buttons, like and love. Each button can track its clicks individually.
+    Added accordion tabs
+*/
 const Card = ({ person }) => {
+    // Sets up the likes and loves states, with zero being the default
     const [likes, setLikes] = useState(0);
-    
+    const [loves, setLoves] = useState(0);
+    // Uses Stack to format the components with accordian tabs for each classmate
     return (
-        <Stack gap={2} className="border p-2 m-2 rounded">
-            <h2>{person.name}</h2>
-            <p>Favorite Food: {person.favoriteFood}</p>
-            <p>Favorite Color: {person.favoriteColor}</p>
-            <Button  variant="outline-primary" onClick={() => setLikes(likes + 1)}>Like ({likes})</Button>
-        </Stack>
+        <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+                <Accordion.Header>{person.name}</Accordion.Header>
+                <Accordion.Body>
+                    <Stack gap={2} className="border p-2 m-2 rounded">
+                        <h2>{person.name}</h2>
+                        <p>Favorite Food: {person.favoriteFood}</p>
+                        <p>Favorite Color: {person.favoriteColor}</p>
+                        <Button variant="outline-primary" size="sm" onClick={() => setLikes(likes + 1)}>Like ({likes})</Button>
+                        <Button variant="outline-danger" size="sm" onClick={() => setLoves(loves + 1)}>Love ({loves})</Button>
+                    </Stack>
+
+                </Accordion.Body>
+
+            </Accordion.Item>
+        
+        </Accordion>
     );
 };
 
-const App = () => {
+const MyClassmate = () => {
     return (
         <div>
             <h1>My Classmates</h1>
@@ -35,5 +56,5 @@ const App = () => {
     );
 };
 
-export default App;
+export default MyClassmate;
 
