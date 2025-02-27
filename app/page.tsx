@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const People = [
     // Test data to check functionality of the components
-    { name: "Sue", favoriteFood: "Pizza", favoriteColor: "Red" },
+    { name: "Susan", favoriteFood: "Pizza", favoriteColor: "Red" },
     { name: "Bob", favoriteFood: "Sushi", favoriteColor: "Pink" },
     { name: "Steve", favoriteFood: "Green Beans", favoriteColor: "Chartreuse" }
 ];
@@ -45,6 +45,9 @@ const Card = ({ person }) => {
     );
 };
 
+/*
+    Sets my classmates as a header, then maps the contents of the people array over the components
+*/
 const MyClassmate = () => {
     return (
         <div>
