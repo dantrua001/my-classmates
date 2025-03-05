@@ -12,15 +12,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const MyClassmate = () => {
     const [people, setPeople] = useState([
         // Test data to check functionality of the components
-        { name: "Susan", favoriteFood: "Pizza", favoriteColor: "Red" },
-        { name: "Bob", favoriteFood: "Sushi", favoriteColor: "Pink" },
-        { name: "Steve", favoriteFood: "Green Beans", favoriteColor: "Chartreuse" },
-        { name: "Louis", favoriteFood: "Apples", favoriteColor: "Silver" }
+        { name: "Susan", favoriteFood: "Pizza", favoriteColor: "Red", likes:0 },
+        { name: "Bob", favoriteFood: "Sushi", favoriteColor: "Pink", likes: 0 },
+        { name: "Steve", favoriteFood: "Green Beans", favoriteColor: "Chartreuse", likes:0 },
+        { name: "Louis", favoriteFood: "Apples", favoriteColor: "Silver", likes:0 }
     ]);
 
     const [newPerson, setNewPerson] = useState({ name: "", favoriteFood: "", favoriteColor: "" });
     const [error, setError] = useState("");
-    const [likes, setLikes] = useState(0);
+    //const [likes, setLikes] = useState(0);
     let tableInstance = null;
     const [editingIndex, setEditingIndex] = useState(null);
 
@@ -91,6 +91,7 @@ const MyClassmate = () => {
                         <th>Name</th>
                         <th>Favorite Food</th>
                         <th>Favorite Color</th>
+                        <th>Likes</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -100,7 +101,9 @@ const MyClassmate = () => {
                             <td>{person.name}</td>
                             <td>{person.favoriteFood}</td>
                             <td>{person.favoriteColor}</td>
-                            <td><Button variant="outline-primary" size="sm" onClick={() => setLikes(likes + 1)}>Like ({likes})</Button>
+                            <td>{person.likes}</td>
+                            <td>
+                                <Button variant="outline-primary" size="sm" onClick={() => handleLike(index)}>Like</Button>{' '}
                                 <Button variant="outline-warning" size="sm" onClick={() => handleEdit(index)}>Edit</Button>{' '}
                                 <Button variant="outline-danger" size="sm" onClick={() => handleDelete(index)}>Delete</Button>
                         </td>

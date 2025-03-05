@@ -13,7 +13,6 @@ pnpm dev
 # or
 bun dev
 ```
-https://dantrua001.github.io/my-classmates/
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

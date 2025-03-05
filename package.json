@@ -1,7 +1,7 @@
 {
     "name": "my-classmates",
     "version": "0.1.0",
-    "homepage": "https://dantrua001.github.io/my-classmates/",
+    "homepage": "https://dantrua001.github.io/my-classmates",
     "private": true,
     "scripts": {
         "predeploy": "npm run build",
