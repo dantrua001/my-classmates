@@ -24,6 +24,8 @@ const MyClassmate = () => {
     let tableInstance = null;
     const [editingIndex, setEditingIndex] = useState(null);
 
+    
+    // Allows DataTable to update in realtime
     useEffect(() => {
         if (tableInstance) {
             tableInstance.destroy();
@@ -35,6 +37,9 @@ const MyClassmate = () => {
         setNewPerson({ ...newPerson, [e.target.name]: e.target.value });
     };
 
+    const handleLike = (index) => {
+        setPeople(people.map((person, i) => i === index ? { ...person, likes: person.likes + 1 } : person));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
