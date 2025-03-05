@@ -32,3 +32,7 @@ to ensure the functinoality of the card components, as well as the "love" button
 The rest of the code has varying levels of AI assistance, with myClassmate being completely AI generated, and other lines being intially
 AI generated with minor variations to suit my cosmetic likings from Bootstrap.
 
+3/5/2025 Assignment 3
+
+
+
